@@ -7,6 +7,13 @@ require("_header.php");
 
 
 
+<?php
+
+require("_middle.php")
+
+?>
+
+
 
 
 <?php
