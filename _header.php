@@ -19,8 +19,25 @@ require("assets/classes/jugador.php");
 require("assets/classes/manager.php");
 require("assets/classes/equipo.php");
 require("assets/classes/invitacion.php");
-//require("classes/domicilio.php");
-//require("classes/telefono.php");
+require("assets/classes/pagina.php");
+
+
+
+
+$pagina = new pagina(basename($_SERVER["PHP_SELF"]));
+
+if($pagina->reqLogin=="S") {
+//	if(!isset($_SESSION['idUser']) || !isset($_SESSION['loginTime'])) {
+//		header("location: index.php");
+//		die();
+//	}
+}
+
+/*
+if(isset($_SESSION['idUser']) && isset($_SESSION['loginTime'])) {
+	$user = new user($_SESSION['idUser']);
+}
+*/
 
 
 
@@ -56,11 +73,11 @@ $conn = _connect();
 	<link href="assets/css/custom.css" rel="stylesheet">
 
 </head>
-<body class="site-layout--horizontal preloader-is--active">
+<body class="<?=$pagina->claseBody?>">
 
-    
-	<div class="site-wrapper">
+	<div class="<?=$pagina->claseWrapper?>">
 
+        
 		<header id="header" class="site-header site-header--bottom">
 		
 			<div class="header-logo header-logo--img">
