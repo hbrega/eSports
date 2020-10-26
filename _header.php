@@ -259,10 +259,10 @@ $conn = _connect();
 					</svg>
 					<span class="header-social-toggle__plus">&nbsp;</span>
 					<ul class="social-menu social-menu--header">
-						<li><a href="https://discord.gg/xxxx"><span class="link-subtitle">Discord</span>Necrochat</a></li>
-						<li><a href="https://twitch.com"><span class="link-subtitle">Twitch</span>Necroplay</a></li>
-						<li><a href="https://twitter.com/danfisher_dev"><span class="link-subtitle">Twitter</span>Necrotwt</a></li>
-						<li><a href="https://www.facebook.com/danfisher.dev/"><span class="link-subtitle">Facebook</span>Necrogame</a></li>
+						<li><a href="https://discord.gg/esports"><span class="link-subtitle">Discord</span>eSports</a></li>
+						<li><a href="https://twitch.com/esports"><span class="link-subtitle">Twitch</span>eSports</a></li>
+						<li><a href="https://twitter.com/esports"><span class="link-subtitle">Twitter</span>@eSports</a></li>
+						<li><a href="https://www.facebook.com/esports/"><span class="link-subtitle">Facebook</span>@eSports</a></li>
 					</ul>
 				</div>
 
