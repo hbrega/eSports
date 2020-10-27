@@ -58,6 +58,8 @@ abstract class Persona {
     static function buscarEmail($email) {
         //esta busca independientemente de la persona! CAMBIAME!!! ES HORRIBLE!
         
+        //deberia instanciar a la persona??
+        
 		if($email=="") {
 			return false;
 		}
@@ -66,7 +68,7 @@ abstract class Persona {
 
 		$sql="	SELECT id
 				FROM personas
-				WHERE email=''".$conn->real_escape_string($email)."'";
+				WHERE email='".$conn->real_escape_string($email)."'";
 
 		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
 		
@@ -74,7 +76,10 @@ abstract class Persona {
 			return false;
 		}
 		
-		return true;
+        $row=$result->fetch_assoc();
+        
+//		return true;
+		return $row['id'];
     }
     
     

@@ -132,6 +132,8 @@ require("_middle.php");
 <script type="text/javascript">
 
 	//login
+    
+    /*
 	$("#lgnSubmit").click(function(e) {
 
 		e.preventDefault();
@@ -186,8 +188,12 @@ require("_middle.php");
 			return false;
 		}
 	});
+    */
 	
 	
+    
+    
+    
 	
 	//registro de nuevo usuario
 	$("#rgtSubmit").click(function(e) {
@@ -228,6 +234,12 @@ require("_middle.php");
 			sinError=false;
 		}
 
+        
+        
+        
+        
+        
+        
 		if(!$("#rgtCond").is(':checked')) {  
 			$("#rgtCond").addClass("has-error");
 			$("#rgtCond").after("<span class='form-notice'>Debe aceptar las bases y condiciones</span>");
@@ -240,7 +252,7 @@ require("_middle.php");
 			
 			toggleOverlay("show");
 
-			$.post("../../assets/php/checkUser.php", {email: $("#rgtEmail").val()}, function(json) {
+			$.post("assets/php/existeEmail.php", {email: $("#rgtEmail").val()}, function(json) {
 				if(json.status=='ok') {
 					$("#rgtEmail").addClass("has-error");
 					$("#rgtEmail").after("<span class='form-notice'>El email ingresado ya esta en uso</span>");
@@ -250,7 +262,7 @@ require("_middle.php");
 				}
 				else {
 					
-					$.post("../../assets/php/actions.php", $("#rgtForm").serialize(), function(json) {
+					$.post("assets/php/registro.php", $("#rgtForm").serialize(), function(json) {
 						if(json.status=='ok') {
 							window.location="index.php";
 						}
@@ -269,6 +281,10 @@ require("_middle.php");
 	});
 
     
+    
+    
+    
+    /*
     $(".password-reminder").click(function() {
         
         $("#modal").modal('show');
@@ -313,7 +329,7 @@ require("_middle.php");
             });
         }
     });
-    
+    */
 
 
 </script>

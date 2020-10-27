@@ -2,8 +2,11 @@
 
 require("_header.php");
 
-    
 
+
+echo(Persona::buscarEmail("test@test.com"));
+
+     
 //para testear altas de jugadores
 //$jugador = Jugador::Nuevo("test02@test.com", "1234", "1982-05-15");
     

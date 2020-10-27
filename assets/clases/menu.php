@@ -292,29 +292,6 @@ class menu {
 								</a>
 							</li>";
 				}
-				
-                //para que se vea el logo
-                /*
-                if($isPeru) {
-                    
-                    $ret.="	<li class='mobile-bar-item w-100 pt-4 pb-4'>
-                                <img src='assets/img/sponsors/p_entel.png' alt='' class='h-50' style='margin: 0 auto; display: block;'>
-                            </li>";
-                    
-                    $ret.="	<li class='mobile-bar-item w-100 pt-4 pb-4'>
-                                <img src='assets/img/sponsors/clubmedia_goals.png' alt='' class='h-50' style='margin: 0 auto; display: block;'>
-                            </li>";
-                }
-                else {
-                    
-                    $ret.="	<li class='mobile-bar-item w-100 pt-4 pb-4'>
-                                <img src='assets/img/sponsors/clubmedia.png' alt='' class='h-50' style='margin: 0 auto; display: block;'>
-                            </li>";
-                    
-                }
-                */
-                
-                
 
                 
 				break;		

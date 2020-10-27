@@ -14,13 +14,13 @@ require("assets/php/funciones.php");
 
 
 
-require("assets/classes/persona.php");
-require("assets/classes/jugador.php");
-require("assets/classes/manager.php");
-require("assets/classes/equipo.php");
-require("assets/classes/invitacion.php");
-require("assets/classes/pagina.php");
-require("assets/classes/menu.php");
+require("assets/clases/persona.php");
+require("assets/clases/jugador.php");
+require("assets/clases/manager.php");
+require("assets/clases/equipo.php");
+require("assets/clases/invitacion.php");
+require("assets/clases/pagina.php");
+require("assets/clases/menu.php");
 
 
 
@@ -101,9 +101,7 @@ $conn = _connect();
             
 			<div class="header-actions">
 				<div class="header-top-bar-toggle d-md-none hide">
-					<svg role="img" class="df-icon df-icon--joystick">
-						<use xlink:href="assets/img/necromancers.svg#joystick"/>
-					</svg>
+					<svg role="img" class="df-icon df-icon--close">
 					<svg role="img" class="df-icon df-icon--close">
 						<use xlink:href="assets/img/necromancers.svg#close"/>
 					</svg>
