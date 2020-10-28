@@ -2,7 +2,6 @@
 
 class Jugador extends Persona {
     
-    public $avatarURL;
     public $nickname;
 
     public $steamID;
@@ -27,7 +26,7 @@ class Jugador extends Persona {
                     p.nombre, p.apellido,
                     p.email, p.clave,
                     p.documento, p.fechaNacimiento,
-                    j.avatarURL, j.nickname,
+                    p.avatarURL, j.nickname,
                     j.steamID, j.psnID, j.xboxID, j.discordID,
                     j.facebookURL, j.instagramURL, j.twitterURL,
                     j.sobreMi, p.fechaAlta
@@ -185,20 +184,6 @@ class Jugador extends Persona {
 		return true;
     } 
      
-    
-    public function ActualizarAvatar() {
-        
-		$conn = _connect();
-
-		$sql= "	UPDATE jugadores
-				SET 
-					avatarURL      = '".$conn->real_escape_string($this->avatarURL)."'
-				WHERE idPersona    = ".$this->id;
-				
-		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
-
-		return true;
-    }
 
     
     public function ListarInvitaciones() {

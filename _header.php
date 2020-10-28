@@ -40,10 +40,19 @@ if($pagina->reqLogin=="S") {
 }
 
 
-if(isset($_SESSION['idUser']) && isset($_SESSION['loginTime'])) {
-
+if(isset($_SESSION['idUser']) && isset($_SESSION['userLvl']) && isset($_SESSION['loginTime'])) {
     
+    switch($_SESSION['userLvl']) {
+        case 1:
+            $usuario = new Jugador($_SESSION['idUser']);
+            break;
+            
+        case 2:
+            $usuario = new Manager($_SESSION['idUser']);
+            break;
+    }
 }
+
 
 
 
@@ -139,19 +148,19 @@ $conn = _connect();
                 
                 <!-- con el menu abierto --->
 				<?php
-					if(isset($_SESSION['idUser']) && isset($_SESSION['loginTime'])) {
+					if(isset($usuario)) {
 				?>
 				<div class="header-account hide">
 					<div class="header-account__avatar">
 						<a href="perfil.php">
-							<img src="" srcset="" alt="">
+							<img src="<?=$usuario->avatarURL?>" srcset="<?=$usuario->avatarURL?>" alt="">
 						</a>
 					</div>
 					<div class="header-account__body">
 						Hola!
 						<div class="header-account__name">
 							<a href="perfil.php">
-								
+                                <?=($usuario->nombre==""?"$usuario->email":$usuario->nombre.' '.$usuario->apellido)?>
 							</a>
 						</div>
 					</div>

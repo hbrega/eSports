@@ -7,6 +7,7 @@ abstract class Persona {
     public $nombre;
     public $apellido;
     
+    public $avatarURL;
     public $tipoPersona;
     
     public $email;
@@ -55,6 +56,24 @@ abstract class Persona {
 
 		return $diff->y;		
     }
+    
+    
+    
+    public function ActualizarAvatar() {
+        
+		$conn = _connect();
+
+		$sql= "	UPDATE personas
+				SET 
+					avatarURL      = '".$conn->real_escape_string($this->avatarURL)."'
+				WHERE id    = ".$this->id;
+				
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+
+		return true;
+    }
+    
+    
     
     
     static function buscarEmail($email) {

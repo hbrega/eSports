@@ -14,7 +14,7 @@ class Manager extends Persona {
 		$sql="	SELECT p.id, p.tipoPersona,
                     p.nombre, p.apellido,
                     p.email, p.clave,
-                    p.documento, p.fechaNacimiento,
+                    p.documento, p.fechaNacimiento, p.avatarURL,
                     m.linkedinID, p.fechaAlta
                 FROM personas p
                 JOIN managers m ON p.id = m.idPersona
@@ -34,6 +34,8 @@ class Manager extends Persona {
         $this->nombre           = $row['nombre'];
         $this->apellido         = $row['apellido'];
 
+        $this->avatarURL        = $row['avatarURL'];
+        
         $this->tipoPersona      = $row['tipoPersona'];
         
 		$this->email			= $row['email'];
