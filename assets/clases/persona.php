@@ -2,18 +2,20 @@
 
 abstract class Persona {
     
-    public  $id;
+    public $id;
     
-    public  $nombre;
-    public  $apellido;
+    public $nombre;
+    public $apellido;
     
-    public  $email;
-    public  $clave;
+    public $tipoPersona;
     
-    public  $documento;
-    public  $fechaNacimiento;
+    public $email;
+    public $clave;
     
-    public  $fechaAlta;
+    public $documento;
+    public $fechaNacimiento;
+    
+    public $fechaAlta;
     
     
     
@@ -80,6 +82,30 @@ abstract class Persona {
         
 //		return true;
 		return $row['id'];
+    }
+    
+    
+    
+    static function buscarTipoPersona($email) {
+		if($email=="") {
+			return false;
+		}
+		
+		$conn = _connect();
+
+		$sql="	SELECT tipoPersona
+				FROM personas
+				WHERE email='".$conn->real_escape_string($email)."'";
+
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+		
+		if($result->num_rows==0) {
+			return false;
+		}
+		
+        $row=$result->fetch_assoc();
+        
+		return $row['tipoPersona'];
     }
     
     

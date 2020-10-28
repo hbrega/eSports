@@ -16,6 +16,8 @@ require("funciones.php");
 require("../clases/persona.php");
 require("../clases/jugador.php");
 require("../clases/manager.php");
+require("../clases/logger.php");
+require("../clases/notificador.php");
 
 
 
@@ -29,37 +31,40 @@ $json = new stdClass();
 
 
 if($_POST['action'] != "register") {
-    $json->status	="error";
-    $json->msg		="Acción no seteada";
+    $json->status	= "error";
+    $json->msg		= "Acción no seteada";
 }
 else {
     
     if($_POST['rgtRol'] == 1) {
         $usuario = Jugador::Nuevo($_POST['rgtEmail'], $_POST['rgtPass'], $_POST['rgtFnac']);        
 
-//        logger::Save($user, "registroJugador", "Se registro un jugador con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
+//        Logger::Save($user, "registroJugador", "Se registro un jugador con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
     }
     else  if($_POST['rgtRol'] == 2) {
     
         $usuario = Manager::Nuevo($_POST['rgtEmail'], $_POST['rgtPass'], $_POST['rgtFnac']);        
         
         
-//        logger::Save($user, "registroManager", "Se registro un manager con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
+//        Logger::Save($user, "registroManager", "Se registro un manager con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
     }
 
 
     //$param = array();
-    //notificator::Save($user, "bienvenida", $param);
+    //Notificador::Save($user, "bienvenida", $param);
     
     
     //$param = array();
-    //notificator::Save($user, "faltaInfo", $param);
+    //Notificador::Save($user, "faltaInfo", $param);
         
         
     $_SESSION['idUser']				= $usuario->id;
+    $_SESSION['userLvl']			= $usuario->tipoPersona;
     $_SESSION['loginTime']			= time();
+    $_SESSION['ShowNotifications']	= true;
 
-    $json->status	="ok";
+    
+    $json->status	= "ok";
 }
 
 

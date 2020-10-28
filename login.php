@@ -75,7 +75,7 @@ require("_header.php");
 						
 						<button class="btn btn-primary btn-block register-form__button" id="rgtSubmit">Crear mi cuenta</button>
 						<div class="register-form__info">
-							Recibirás un email de confirmación </br>para activar tu cuenta.
+							Recibirás un email de confirmación.
 						</div>
 					</form>
 				</div>
@@ -132,8 +132,6 @@ require("_middle.php");
 <script type="text/javascript">
 
 	//login
-    
-    /*
 	$("#lgnSubmit").click(function(e) {
 
 		e.preventDefault();
@@ -169,13 +167,13 @@ require("_middle.php");
 
 			toggleOverlay("show");
 
-			$.post("../../assets/php/actions.php", $("#lgnForm").serialize(), function(json) {
+			$.post("assets/php/login.php", $("#lgnForm").serialize(), function(json) {
 				if(json.status=='ok') {
 
 					window.location="index.php";
 				}
 				else {
-					UpdateNotifications();
+//					UpdateNotifications();
 					
 					$("#lgnEmail").addClass("has-error");
 					$("#lgnEmail").after("<span class='form-notice'>"+json.msg+"</span>");
@@ -188,7 +186,6 @@ require("_middle.php");
 			return false;
 		}
 	});
-    */
 	
 	
     

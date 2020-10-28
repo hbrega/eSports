@@ -53,6 +53,8 @@ class Jugador extends Persona {
 		$this->email			= $row['email'];
         $this->clave            = $row['clave'];
     
+        $this->tipoPersona      = $row['tipoPersona'];
+
         $this->documento        = $row['documento'];
         $this->fechaNacimiento  = $row['fechaNacimiento'];
 

@@ -21,6 +21,8 @@ require("assets/clases/equipo.php");
 require("assets/clases/invitacion.php");
 require("assets/clases/pagina.php");
 require("assets/clases/menu.php");
+require("assets/clases/logger.php");
+require("assets/clases/notificador.php");
 
 
 
@@ -31,17 +33,17 @@ $menu = new menu();
 
 
 if($pagina->reqLogin=="S") {
-//	if(!isset($_SESSION['idUser']) || !isset($_SESSION['loginTime'])) {
-//		header("location: index.php");
-//		die();
-//	}
+	if(!isset($_SESSION['idUser']) || !isset($_SESSION['loginTime'])) {
+		header("location: index.php");
+		die();
+	}
 }
 
-/*
+
 if(isset($_SESSION['idUser']) && isset($_SESSION['loginTime'])) {
-	$user = new user($_SESSION['idUser']);
+
+    
 }
-*/
 
 
 

@@ -33,6 +33,8 @@ class Manager extends Persona {
 
         $this->nombre           = $row['nombre'];
         $this->apellido         = $row['apellido'];
+
+        $this->tipoPersona      = $row['tipoPersona'];
         
 		$this->email			= $row['email'];
         $this->clave            = $row['clave'];
