@@ -63,8 +63,17 @@ else {
         $usuario->ActualizarDatosComunes(); //en tabla personas
 
         
+        if($usuario->tipoPersona == 2) {
+            
+            $usuario->linkedinID    = $_POST['pflLinkedin'];
+            $usuario->ActualizarDatos();
+            
+        }
+        
+        
         Logger::Save($usuario, "actualizoDatos", "El usuario: ".$usuario->id." modifico sus datos personales. Nombre: ".$usuario->nombre."  Apellido: ".$usuario->apellido."  Documento: ".$usuario->documento." Fecha de Nacimiento: ".$usuario->fechaNacimiento);
 
+        
         $json->status="ok";
         
     }

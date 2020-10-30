@@ -40,7 +40,24 @@ require("_header.php");
 							</div>
 						</div>
 					</div>
+                    
+                    
+                    <?php
+                        if($usuario->tipoPersona == 2) {
+                    ?>
 
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" class="form-control" name="pflLinkedin" id="pflLinkedin" placeholder="Tu ID en Linkedin" maxlength="50"  value="<?=$usuario->linkedinID?>">
+							</div>
+						</div>
+					</div>
+
+                    <?php
+                        }
+                    ?>
+                    
 						
 					
 					<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center">

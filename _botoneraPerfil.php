@@ -11,6 +11,14 @@
 					<div class="account-navigation__name h5"><?=($usuario->nombre==""?"$usuario->email":$usuario->nombre.' '.$usuario->apellido)?></div>
 				</div>
 
+<?php                
+            
+    
+    
+    if(get_class($usuario) == "Jugador") { 
+    
+?>
+                
 				<ul class="account-navigation__menu">
 					<li>
 						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil.php"?"active":"")?>" href="perfil.php">Datos Personales</a>
@@ -20,9 +28,54 @@
 						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_redes.php"?"active":"")?>" href="perfil_redes.php">Mis Juegos y Redes</a>
 					</li>
 
+					<li>
+						<a class="<?=((basename($_SERVER["PHP_SELF"])=="perfil_equipo2.php")?"active":"")?>" href="perfil_equipo2.php"?>Mi Equipo</a>
+					</li>
+					
+					<li>
+						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_torneos.php"?"active":"")?>" href="perfil_torneos.php">Mis Torneos</a>
+					</li>
+
+                    <li>
+						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_historial.php"?"active":"")?>" href="perfil_historial.php">Solicitudes &amp; Logs</a>
+					</li>
+                </ul>
 
                 
+<?php                
                 
+    }
+    else if(get_class($usuario) == "Manager") { 
+     
+?>
+
+                
+				<ul class="account-navigation__menu">
+					<li>
+						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil.php"?"active":"")?>" href="perfil.php">Datos Personales</a>
+					</li>
+
+					<li>
+						<a class="<?=((basename($_SERVER["PHP_SELF"])=="perfil_equipo.php") || (basename($_SERVER["PHP_SELF"])=="perfil_equipo3.php")?"active":"")?>" href="<?=($usuario->ListarEquipos()?"perfil_equipo3.php":"perfil_equipo.php")?>">Mis Equipos</a>
+					</li>
+					
+					<li>
+						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_torneos.php"?"active":"")?>" href="perfil_torneos.php">Mis Torneos</a>
+					</li>
+
+                    <li>
+						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_historial.php"?"active":"")?>" href="perfil_historial.php">Solicitudes &amp; Logs</a>
+					</li>
+
                 
                 </ul>
+                    
+                    
+                    
+<?php                
+                
+    }
+    
+?>
+                
 			</div>
