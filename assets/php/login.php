@@ -39,7 +39,7 @@ else {
     
     if(!Persona::buscarEmail($_POST['lgnEmail'])) {    
 
-//        Logger::Save("", "falloLoginUsuarioDesconocido", "Intento fallido de login, usuario desconocido, email: ".$_POST['lgnEmail']);
+        Logger::Save("", "falloLoginUsuarioDesconocido", "Intento fallido de login, usuario desconocido, email: ".$_POST['lgnEmail']);
 
         $json->status	="error";
         $json->msg		="Usuario o Clave incorrecto";        
@@ -57,7 +57,7 @@ else {
                 if($usuario = Jugador::Login($_POST['lgnEmail'], $_POST['lgnPass'])) {                    
                     
 
-					//Logger::Save($user, "loginJugador", "Login correcto, usuario id: ".$usuario->id." - ".$usuario->nombre." ".$usuario->apellido." - ".$_POST['lgnEmail']);
+					Logger::Save($usuario, "loginJugador", "Login correcto, usuario id: ".$usuario->id." - ".$usuario->nombre." ".$usuario->apellido." - ".$_POST['lgnEmail']);
 
 
                     
@@ -77,7 +77,7 @@ else {
                 }
                 else {
 
-                    //logger::Save($tmpUser, "falloLogin", "Intento fallido de login, email: ".$_POST['lgnEmail']);
+                    Logger::Save($usuario, "falloLogin", "Intento fallido de login, email: ".$_POST['lgnEmail']);
 
 				    $json->status	="error";
 				    $json->msg		="Usuario o Clave incorrecto";
@@ -90,7 +90,7 @@ else {
                 if($usuario = Manager::Login($_POST['lgnEmail'], $_POST['lgnPass'])) {                    
                     
 
-					//Logger::Save($user, "loginManager", "Login correcto, manager id: ".$usuario->id." - ".$usuario->nombre." ".$usuario->apellido." - ".$_POST['lgnEmail']);
+					Logger::Save($usuario, "loginManager", "Login correcto, manager id: ".$usuario->id." - ".$usuario->nombre." ".$usuario->apellido." - ".$_POST['lgnEmail']);
 
 
                     
@@ -109,7 +109,7 @@ else {
                 }
                 else {
 
-                    //logger::Save($tmpUser, "falloLogin", "Intento fallido de login, email: ".$_POST['lgnEmail']);
+                    logger::Save($usuario, "falloLogin", "Intento fallido de login, email: ".$_POST['lgnEmail']);
 
 				    $json->status	="error";
 				    $json->msg		="Usuario o Clave incorrecto";

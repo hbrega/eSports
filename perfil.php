@@ -2,8 +2,6 @@
 
 require("_header.php");
 
-//CheckLogin();
-
 ?>
 		<main class="site-content account-page" id="wrapper">
 
@@ -65,8 +63,6 @@ require("_middle.php");
 <script type="text/javascript">
 
     
-    /*
-    
 	//actualizar perfil
 	$("#pflSubmit").click(function(e) {
 		
@@ -92,16 +88,13 @@ require("_middle.php");
 
 			toggleOverlay("show");
 
-			$.post("../../assets/php/actions.php", $("#pflForm").serialize(), function(json) {
+			$.post("assets/php/perfilBasico.php", $("#pflForm").serialize(), function(json) {
 				if(json.status=='ok') {
 
 					window.location.reload();
 				}
 				else {
-					UpdateNotifications();
-					
-//					$("#lgnEmail").addClass("has-error");
-//					$("#lgnEmail").after("<span class='form-notice'>"+json.msg+"</span>");
+				    alert(json.msg);
 				}
 
 			});
@@ -111,9 +104,6 @@ require("_middle.php");
 		
 	});
     
-    
-    */
-
 
 </script>
 

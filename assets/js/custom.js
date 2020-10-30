@@ -1,6 +1,7 @@
-/*
+
 function UpdateNotifications(forceShow = false) {
-    
+
+    /*    
 	$.post("/assets/php/getNotifications.php", function(json) {
 
 		var notifications="";
@@ -47,8 +48,10 @@ function UpdateNotifications(forceShow = false) {
 	
 	//cada 5 minutos se repite
 	setTimeout(UpdateNotifications, 5 * 60 * 1000);
+
+    */
+
 }
-*/
 
 
 
