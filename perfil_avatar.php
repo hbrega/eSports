@@ -141,7 +141,7 @@ require("_middle.php");
 					//EN PNG Ocupa MUUUUUUUUUCHO mas!!!
 					formData.append('avatar', blob, 'avatar.png');
 
-					$.ajax('../../assets/php/avatarUpload.php', {
+					$.ajax('assets/php/perfilAvatar.php', {
 						method: 'POST',
 						data: formData,
 						processData: false,
