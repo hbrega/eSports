@@ -63,7 +63,7 @@ else {
         $usuario->ActualizarDatosComunes(); //en tabla personas
 
         
-        Logger::Save($usuario, "actualizoDatos", "El usuario: ".$usuario->id." modifico sus datos personales. Nombre: ".$usuario->nombre."  Apellido: ".$usuario->apellido."  Documento: ".$usuario->documento." Fecha de Nacimiento: ".$usuario->fechaNacimiento.");
+        Logger::Save($usuario, "actualizoDatos", "El usuario: ".$usuario->id." modifico sus datos personales. Nombre: ".$usuario->nombre."  Apellido: ".$usuario->apellido."  Documento: ".$usuario->documento." Fecha de Nacimiento: ".$usuario->fechaNacimiento);
 
         $json->status="ok";
         
