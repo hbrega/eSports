@@ -10,7 +10,7 @@ require("_header.php");
 ?>
 
 			<div class="account-content">
-				<h2 class="h4">01. Datos Personales</h2>
+				<h2 class="h4">Datos Personales</h2>
 				<form action="#" class="form" name="pflForm" id="pflForm">
 	
 					<div class="row">

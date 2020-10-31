@@ -63,7 +63,7 @@ else {
 
 	}
 	
-	Logger::Save($usuario, "usuarioAvatar", "El usuario ".$usuario->id." cambio su avatar al siguiente: ".substr($folderPath.$arch, 6));
+	Logger::Save($usuario, "usuarioAvatar", "El usuario ".$usuario->id." cambio su avatar al siguiente: ".$folderPath.$arch);
 
 }
     
