@@ -27,7 +27,7 @@
 					</li>
 
 					<li>
-						<a class="<?=((basename($_SERVER["PHP_SELF"])=="perfil_equipo2.php")?"active":"")?>" href="perfil_equipo2.php"?>Mi Equipo</a>
+						<a class="<?=((basename($_SERVER["PHP_SELF"])=="perfil_miEquipo.php")?"active":"")?>" href="perfil_miEquipo.php"?>Mi Equipo</a>
 					</li>
 					
 					<li>
@@ -38,7 +38,6 @@
 						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_historial.php"?"active":"")?>" href="perfil_historial.php">Solicitudes &amp; Logs</a>
 					</li>
                 </ul>
-
                 
 <?php                
                 
@@ -47,14 +46,13 @@
      
 ?>
 
-                
-				<ul class="account-navigation__menu">
+                <ul class="account-navigation__menu">
 					<li>
 						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil.php"?"active":"")?>" href="perfil.php">Datos Personales</a>
 					</li>
 
 					<li>
-						<a class="<?=((basename($_SERVER["PHP_SELF"])=="perfil_equipo.php") || (basename($_SERVER["PHP_SELF"])=="perfil_equipo3.php")?"active":"")?>" href="<?=($usuario->ListarEquipos()?"perfil_equipo3.php":"perfil_equipo.php")?>">Mis Equipos</a>
+						<a class="<?=((basename($_SERVER["PHP_SELF"])=="perfil_nuevoEquipo.php") || (basename($_SERVER["PHP_SELF"])=="perfil_listarEquipos.php")|| (basename($_SERVER["PHP_SELF"])=="perfil_admEquipo.php")?"active":"")?>" href="<?=($usuario->ListarEquipos()?"perfil_listarEquipos.php":"perfil_nuevoEquipo.php")?>">Mis Equipos</a>
 					</li>
 					
 					<li>
@@ -64,11 +62,7 @@
                     <li>
 						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_historial.php"?"active":"")?>" href="perfil_historial.php">Solicitudes &amp; Logs</a>
 					</li>
-
-                
                 </ul>
-                    
-                    
                     
 <?php                
                 

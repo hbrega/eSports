@@ -3,7 +3,7 @@
 
 
         <div class="cart-panel">
-			<h4 class="cart-panel__title text-white">Notificaciones (<span class="cart-panel__items-count">4</span>)</h4>
+			<h4 class="cart-panel__title text-white">Notificaciones (<span class="cart-panel__items-count">0</span>)</h4>
 			<div class="cart-panel__content">
 				<div class="table-responsive">
 					<table class="table shop-table">

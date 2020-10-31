@@ -96,7 +96,7 @@ $conn = _connect();
 		<header id="header" class="site-header site-header--bottom">
 		
 			<div class="header-logo header-logo--img">
-				<a href="index.php"><img src="assets/img/logo.png" srcset="assets/img/logo@2x.png 2x" alt="Inicio"></a>
+				<!--- <a href="index.php"><img src="assets/img/logo.png" srcset="assets/img/logo@2x.png 2x" alt="Inicio"></a> --->
 			</div>
 		
 
