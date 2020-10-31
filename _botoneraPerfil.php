@@ -13,8 +13,6 @@
 
 <?php                
             
-    
-    
     if(get_class($usuario) == "Jugador") { 
     
 ?>
