@@ -39,23 +39,23 @@ else {
     if($_POST['rgtRol'] == 1) {
         $usuario = Jugador::Nuevo($_POST['rgtEmail'], $_POST['rgtPass'], $_POST['rgtFnac']);        
 
-//        Logger::Save($user, "registroJugador", "Se registro un jugador con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
+        Logger::Save($usuario, "registroJugador", "Se registro un jugador con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
     }
     else  if($_POST['rgtRol'] == 2) {
     
         $usuario = Manager::Nuevo($_POST['rgtEmail'], $_POST['rgtPass'], $_POST['rgtFnac']);        
         
         
-//        Logger::Save($user, "registroManager", "Se registro un manager con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
+        Logger::Save($usuario, "registroManager", "Se registro un manager con el id: ".$usuario->id." y el siguiente email: ".$usuario->email);
     }
 
 
-    //$param = array();
-    //Notificador::Save($user, "bienvenida", $param);
+    $param = array();
+    Notificador::Save($usuario, "registro", $param);
     
     
-    //$param = array();
-    //Notificador::Save($user, "faltaInfo", $param);
+    $param = array();
+    Notificador::Save($usuario, "faltaInfo", $param);
         
         
     $_SESSION['idUser']				= $usuario->id;

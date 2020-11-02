@@ -1,6 +1,6 @@
 <?php
 
-class notificator {
+class Notificador {
 	
 	public $id;
 //	public $user;
@@ -45,7 +45,7 @@ class notificator {
 					WHERE idUsuario ='".$usuario->id."'
 						AND borrado IS NULL
 					ORDER BY id DESC, fechaLectura ASC 
-					LIMIT ".$conn->real_escape_string($$limite);
+					LIMIT ".$conn->real_escape_string($limite);
 		$result = $conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
 
 		$i=0;
@@ -73,67 +73,27 @@ class notificator {
 		
 		$conn = _connect();
 
-        
-        /*
 		switch($tipo) {
-			case "register":	
+			case "registro":	
 				
-				$titulo="Registro en Goals Play";
-				$contenido="Se ha enviado un mail a ".$usuario->email."<br>En el mismo encontrara un link para confirmar su registro.<br>En caso de no recibirlo por favor revise su carpeta de correo no deseado";
+				$titulo="Registro en eSports Manager";
+				$contenido="Se ha enviado un mail a ".$usuario->email.".<br>En caso de no recibirlo por favor revise su carpeta de correo no deseado";
 
 				$link="javascript: void(0)";
 				$repeat=false;
 				break;
 
-				
-			case "activation":	
-				
-				$titulo="Activacion en Goals Play";
-				$contenido="Su usuario ha sido activado<br>Ya puede ingresar al sitio haciendo click en INICIAR SESION";
 
-				$link="login.php";
-				$repeat=false;
-				break;
-
-				
-			case "already_activated":	
-				
-				$titulo="Activacion en Goals Play";
-				$contenido="Su usuario fue activado con anterioridad<br>Puede ingresar al sitio haciendo click en INICIAR SESION";
-
-				$link="login.php";
-				$repeat=false;
-				break;
-				
-
-			case "missing_data":	
+			case "faltaInfo":	
 				
 				$titulo="Complete su informacion de perfil";
-				$contenido="No olvide completar sus datos personales para poder participar en los torneos";
+				$contenido="No olvide completar sus datos personales para poder utilizar el sitio";
 
 				$link="perfil.php";
 				$repeat=false;
 				break;
 				
-				
-			case "too_young":	
-				
-				$titulo="Menor de Edad";
-				$contenido="Aun no tienes 13 años, no podras participar de ningun torneo en la plataforma";
-
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
-				
-
-			case "need_authorization":	
-				
-				$titulo="Necesitas autorizacion de tus padres o tutores";
-				$contenido="Al ser menor de 16 años, tus padres/tutores/encargados deberán rellenar un formulario que deberás enviarnos.";
-				
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
+                /*
 				
 				
 			case "invitacion_sent":	
@@ -203,58 +163,8 @@ class notificator {
 				$repeat=false;
 				break;
 
-				
-			case "join_tournament_invalid":
-				
-				$titulo="Ya estas participando del torneo";
-				$contenido="No puedes volver a inscribirte al torneo: ".$arrParam[0]." porque ya estas participando del mismo.";
-				
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
-				
-				
-			case "join_tournament_wrong_age":
-				
-				$titulo="No puedes inscribirte al torneo";
-				$contenido="No puedes inscribirte al torneo: ".$arrParam[0]." porque no cumples los requisitos de edad.";
-				
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
-				
-				
-			case "join_tournament_need_auth":
-				
-				$titulo="Te anotaste al torneo";
-				$contenido="Te inscribiste al torneo: ".$arrParam[0].", necesitaras autorizacion de tus padres para confirmar tu participacion en el mismo.";
-				
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
 
-				
-			case "join_tournament":
-				
-				$titulo="Te anotaste al torneo";
-				$contenido="Te inscribiste al torneo: ".$arrParam[0].".";
-				
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
-				
-				
-			case "leave_tournament":
-				
-				$titulo="Abandonaste el torneo";
-				$contenido="Abandonaste el torneo: ".$arrParam[0].".";
-				
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
-                
-					
-			case "kicked_player":
+            case "kicked_player":
 				
 				$titulo="Expulsaste a un jugador";
 				$contenido="Expulsaste al jugador: ".$arrParam[0]." de tu equipo: ".$arrParam[1].".";
@@ -273,6 +183,7 @@ class notificator {
 				$repeat=true;
 				break;				
                 
+		*/
                 
                 
 			default:
@@ -280,7 +191,6 @@ class notificator {
 				break;
 				
 		}
-		*/
 		
 		
 		if(!$repeat) {
@@ -302,7 +212,7 @@ class notificator {
 					'".$conn->real_escape_string($tipo)."',
 					'".$conn->real_escape_string($titulo)."',
 					'".$conn->real_escape_string($link)."',
-					'".$conn->real_escape_string($contenico)."'
+					'".$conn->real_escape_string($contenido)."'
 				)";
 
 		$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);

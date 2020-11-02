@@ -29,8 +29,10 @@ function UpdateNotifications(forceShow = false) {
 
 		$(".product__remove-icon").click(function() {
 			
-			$.post("assets/php/checkNotificaciones.php", {id: $(this).data('notification')}, function() {
+			$.post("assets/php/borrarNotificaciones.php", {id: $(this).data('notification')}, function() {
+//                alert("1");
 				UpdateNotifications();
+//                alert("2");
 			});
 		});
 

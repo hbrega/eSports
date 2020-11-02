@@ -63,7 +63,7 @@ else {
                     
                     if($usuario->nombre == "" || $usuario->apellido == "" || $usuario->documento == "") {
 						$param = array();
-						//Notificador::Save($user, "faltaInfo", $param);
+						Notificador::Save($usuario, "faltaInfo", $param);
 					}
 					
 
@@ -96,7 +96,7 @@ else {
                     
                     if($usuario->nombre == "" || $usuario->apellido == "" || $usuario->documento == "") {
 						$param = array();
-						//Notificador::Save($user, "faltaInfo", $param);
+						Notificador::Save($usuario, "faltaInfo", $param);
 					}
 					
 
