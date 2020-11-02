@@ -45,7 +45,8 @@ class Logger {
 
 		$sql="	SELECT id
 				FROM logs
-				WHERE idPersona = '".$usuario->id."'";
+				WHERE idPersona = '".$usuario->id."'
+                ORDER BY id DESC";
 
 		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
 

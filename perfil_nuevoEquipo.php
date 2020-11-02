@@ -90,6 +90,157 @@ require("_middle.php");
 									   
 ?>
 
+<script type="text/javascript">
+
+    var cropper;
+    var canvas;
+
+	
+	window.addEventListener('DOMContentLoaded', function () {
+    	var avatar = document.getElementById('avatar');
+      	var image = document.getElementById('cropImage');
+      	var input = document.getElementById('inputFile');
+      	var $progress = $('.progress');
+      	var $progressBar = $('.progress-bar');
+      	//var $alert = $('.alert');
+      	var $modal = $('#modal');
+
+      	$('[data-toggle="tooltip"]').tooltip();
+
+		input.addEventListener('change', function (e) {
+        	var files = e.target.files;
+        	var done = function (url) {
+          		input.value = '';
+          		image.src = url;
+          		//$alert.hide();
+          		$modal.modal('show');
+        	};
+
+			var reader;
+        	var file;
+        	var url;
+
+        	if (files && files.length > 0) {
+          		file = files[0];
+
+          		if (URL) {
+            		done(URL.createObjectURL(file));
+          		}
+				else if (FileReader) {
+            		reader = new FileReader();
+            		reader.onload = function (e) {
+              			done(reader.result);
+            		};
+            		reader.readAsDataURL(file);
+          		}
+        	}
+			
+			
+		});
+
+      	$modal.on('shown.bs.modal', function () {
+        	cropper = new Cropper(image, {
+          		aspectRatio: 1,
+          		viewMode: 3,
+        	});
+      	}).on('hidden.bs.modal', function () {
+        	cropper.destroy();
+        	cropper = null;
+      	});
+
+		document.getElementById('crop').addEventListener('click', function () {
+      		var initialAvatarURL;
+
+		  	$modal.modal('hide');
+
+        	if (cropper) {
+          		canvas = cropper.getCroppedCanvas({
+					width: 600,
+					height: 600,
+				});
+
+				initialAvatarURL = avatar.src;
+				avatar.src = canvas.toDataURL();
+			}
+		});
+	});
+
+	
+	
+
+	//crear equipo
+	$("#teamSubmit").click(function(e) {
+		
+		e.preventDefault();
+		var sinError=true;
+
+		$("#teamForm").find("*").each(function() {
+			$(this).removeClass("has-error");
+			$(this).next("span.form-notice").remove();
+		});
+
+		$("#teamForm input[required]").each(function() {
+			if($(this).val()=="") {
+				$(this).addClass("has-error");
+				$(this).after("<span class='form-notice'>Este campo es obligatorio</span>");
+				
+				sinError=false;
+			}
+		});
+		
+		if(canvas==undefined) {
+			$("#inputFile").after("<span class='form-notice'>Es obligatorio subir un logo</span>");
+
+			sinError=false;
+		}
+		
+		if(sinError) {
+			
+			toggleOverlay("show");
+
+			canvas.toBlob(function (blob) {
+			
+				var formData = new FormData();
+
+				formData.append('logo', blob, 'logo.png');
+				formData.append('teamName', $('#teamName').val());
+				formData.append('teamAbout', $('#teamAbout').val());
+				formData.append('action', 'newTeam');
+
+
+				$.ajax('assets/php/perfil_nuevoEquipo.php', {
+					method: 'POST',
+					data: formData,
+					processData: false,
+					contentType: false,
+
+					error: function () {
+						alert("Ha ocurrido un error, en unos minutos intentelo nuevamente");
+						//$alert.show().addClass('alert-warning').text('Upload error');
+						toggleOverlay("hidden");
+					},
+
+					success: function () {
+						window.location='perfil_listarEquipos.php';
+						toggleOverlay("hidden");
+					},
+
+					complete: function () {
+//						location.reload();
+					},
+				});
+
+
+			});
+			
+		}
+		
+	});
+	
+	
+	
+	
+</script>
 
 
 <?php
