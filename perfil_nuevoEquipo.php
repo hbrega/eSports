@@ -208,7 +208,7 @@ require("_middle.php");
 				formData.append('action', 'newTeam');
 
 
-				$.ajax('assets/php/perfil_nuevoEquipo.php', {
+				$.ajax('assets/php/perfilNuevoEquipo.php', {
 					method: 'POST',
 					data: formData,
 					processData: false,

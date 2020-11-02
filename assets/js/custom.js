@@ -1,8 +1,6 @@
-
 function UpdateNotifications(forceShow = false) {
 
-    /*    
-	$.post("/assets/php/getNotifications.php", function(json) {
+	$.post("assets/php/checkNotificaciones.php", function(json) {
 
 		var notifications="";
 
@@ -31,7 +29,7 @@ function UpdateNotifications(forceShow = false) {
 
 		$(".product__remove-icon").click(function() {
 			
-			$.post("/assets/php/readNotifications.php", {id: $(this).data('notification')}, function() {
+			$.post("assets/php/checkNotificaciones.php", {id: $(this).data('notification')}, function() {
 				UpdateNotifications();
 			});
 		});
@@ -49,7 +47,6 @@ function UpdateNotifications(forceShow = false) {
 	//cada 5 minutos se repite
 	setTimeout(UpdateNotifications, 5 * 60 * 1000);
 
-    */
 
 }
 
@@ -64,3 +61,5 @@ function toggleOverlay(mode) {
 	}
 }
 
+
+UpdateNotifications();
