@@ -132,7 +132,7 @@ if($invitaciones = $equipo->ListarInvitaciones()) {
 						<?=$jugTaj?>
 
 						<div class="col-sm-6 col-lg-3">
-							<div class="team-item team-item--v4 team-3" id="invitarJugador">
+							<div class="team-item team-item--v4 team-3" id="invitarJugador" style='transform: scale(0.5, 0.5);'>
 								<a href="javascript: void(0)" class="team-item__thumbnail" >
 									<div class="team-item__bg-holder">
 										<div class="team-item__bg" style="background-image: url(assets/img/selection_bg.jpg);"></div>
