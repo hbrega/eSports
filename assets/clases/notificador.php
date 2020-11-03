@@ -113,9 +113,8 @@ class Notificador {
 				$repeat=true;
 				break;
 				
-                /*
 				
-			case "invitation_accepted":	
+			case "invitacionAceptada":	
 				$titulo="Han aceptado tu invitacion";
 				$contenido=$arrParam[0]." ha aceptado tu invitacion y se ha unido tu equipo: ".$arrParam[1];
 				
@@ -124,7 +123,7 @@ class Notificador {
 				break;
 			
 			
-			case "invitation_rejected":	
+			case "invitacionRechazada":	
 				$titulo="Han rechazado tu invitacion";
 				$contenido=$arrParam[0]." ha rechazado tu invitacion para unirse a tu equipo: ".$arrParam[1];
 				
@@ -133,15 +132,16 @@ class Notificador {
 				break;
 
 				
-			case "joined_team":	
+			case "ingresarEquipo":	
 				
 				$titulo="Te uniste a un equipo";
 				$contenido="Te has unido al equipo: ".$arrParam[0].", para ver el perfil del mismo, hace click AQUI";
 				
-				$link="perfil_equipo2.php";
+				$link="perfil_miEquipo.php";
 				$repeat=true;
 				break;
 				
+                /*
 				
 			case "delete_team":	
 				
