@@ -61,6 +61,40 @@ if($jugadores) {
     
     
 
+//invitaciones
+$invTabla = "";
+if($invitaciones = $equipo->ListarInvitaciones()) {
+	
+	$invTabla="
+				<h4 class='h5 mt-4 mb-3'>Invitaciones Pendientes</h2>
+
+                <table class='table'>
+					<thead>
+						<tr>
+							<th>Fecha</th>
+							<th>Jugador</th>
+						</tr>
+					</thead>
+					<tbody>
+	";
+	
+	foreach($invitaciones as $invitacion) {
+		$invTabla.="
+						<tr>
+							<td class='align-middle'>".$invitacion->fechaEnvio."</td>
+							<td class='align-middle'>".$invitacion->jugador->nombre." ".$invitacion->jugador->apellido." (".$invitacion->jugador->email.")</td>
+						</tr>
+		";
+	}
+	
+	$invTabla.="
+					</tbody>
+				</table>
+	";
+}
+
+
+
 
 ?>
 		<main class="site-content account-page" id="wrapper">
@@ -111,9 +145,13 @@ if($jugadores) {
 						
 					</div>
 
+                    
+                    <?=$invTabla?>
+
+                    
 					<div class="text-right">
 						<button class="btn btn-danger" id="borrarEquipo">ELiminar Equipo</button>
-						<button class="btn btn-warning" id="volver">Volver</button>
+						<a href="perfil_listarEquipos.php"><button class="btn btn-warning" id="volver">Volver</button></a>
 					</div>
 					
 				</div>

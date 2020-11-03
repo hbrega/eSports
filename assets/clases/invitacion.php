@@ -63,11 +63,6 @@ class Invitacion {
 			return false;
 		}
 
-		if (!$conn->query($sql)) {
-			echo($conn->errno." ".$conn->error);
-			return false;
-		}
-
 		$idInvitacion = $conn->insert_id;
 		$invitacion = new Invitacion($idInvitacion);
 

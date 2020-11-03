@@ -63,24 +63,18 @@ if($logs = Logger::GetLogs($usuario)) {
 	";
 	
 	foreach($logs as $log) {
-		
 		$logsTable.="
 						<tr>
 							<td class='align-middle'>".$log->fechaAlta."</td>
 							<td class='align-middle'>".$log->descripcion."</td>
 						</tr>
 		";
-		
-		
-		
 	}
 	
 	$logsTable.="
 					</tbody>
 				</table>
 	";
-    
-	
 }
 
 

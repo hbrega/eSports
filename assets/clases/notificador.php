@@ -153,16 +153,6 @@ class Notificador {
 				break;
 
 			
-			case "message_sent":	
-				
-				$titulo="Tu mensaje ha sido enviado";
-				$contenido="Tu mensaje ha sido enviado con exito, te responderemos a la brevedad.";
-				
-				$link="javascript: void(0)";
-				$repeat=false;
-				break;
-
-
             case "kicked_player":
 				
 				$titulo="Expulsaste a un jugador";

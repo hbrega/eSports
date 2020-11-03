@@ -188,6 +188,31 @@ class Equipo {
     }
     
     
+    
+    public function ListarInvitaciones() {
+        
+		$conn = _connect();
+        
+		$sql="	SELECT id
+				FROM equipos_invitaciones
+				WHERE idEquipo = '".$conn->real_escape_string($this->id)."'
+					AND respuesta IS NULL";
+        
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+
+		if($result->num_rows==0) {
+			return false;
+		}
+
+		while($row=$result->fetch_assoc()) {
+			$invitaciones[] = new Invitacion($row['id']);
+		}
+
+		return $invitaciones;
+
+    }
+    
+    
     public function ListarTorneos() {
         
         
