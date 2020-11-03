@@ -162,6 +162,26 @@ class Notificador {
 				break;				
                 
                 
+            case "expulsoJugador":
+				
+				$titulo="Expulsaste a un jugador";
+				$contenido="Expulsaste al jugador: ".$arrParam[0]." de tu equipo: ".$arrParam[1].".";
+				
+				$link="javascript: void(0)";
+				$repeat=true;
+				break;				
+			
+                
+			case "expulsado":
+				
+				$titulo="Te expulsaron de un equipo";
+				$contenido="Has sido expulsado del equipo: ".$arrParam[0].".";
+				
+				$link="javascript: void(0)";
+				$repeat=true;
+				break;				
+
+                
                 /*
 				
 			case "delete_team":	
@@ -174,24 +194,6 @@ class Notificador {
 				break;
 
 			
-            case "kicked_player":
-				
-				$titulo="Expulsaste a un jugador";
-				$contenido="Expulsaste al jugador: ".$arrParam[0]." de tu equipo: ".$arrParam[1].".";
-				
-				$link="javascript: void(0)";
-				$repeat=true;
-				break;				
-			
-                
-			case "kicked":
-				
-				$titulo="Te expulsaron de un equipo";
-				$contenido="Has sido expulsado del equipo: ".$arrParam[0].".";
-				
-				$link="javascript: void(0)";
-				$repeat=true;
-				break;				
                 
 		*/
                 

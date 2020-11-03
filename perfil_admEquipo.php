@@ -50,7 +50,7 @@ if($jugadores) {
                             ".$jugador->nickname."
                         </a>
                     </p>
-                    <div class='h4 btnExpulsar' style='font-size: 2em; padding: 6px; background-color: #F00; color: #fff;' data-player='".$jugador->id."'>EXPULSAR</div>
+                    <div class='h4 btnExpulsar' style='font-size: 2em; padding: 6px; background-color: #F00; color: #fff;' data-jugador='".$jugador->id."'>EXPULSAR</div>
                 </div>
             </div>
         ";
@@ -139,7 +139,7 @@ if($invitaciones = $equipo->ListarInvitaciones()) {
 									</div>
 									<div style="background-image: url(assets/img/invite.png);" class="team-item__img-primary"></div>
 								</a>
-								<span class="team-item__subtitle h6">Invitar Jugador</span>
+								<span class="team-item__subtitle h6" style='font-size: 1.5em;'>Invitar Jugador</span>
 							</div>
 						</div>
 						
@@ -296,6 +296,34 @@ require("_middle.php");
     
     
     
+   
+    //expulsar jugador
+    $(".btnExpulsar").click(function(e) {
+    
+		if(prompt("Seguro que desea eliminar expulsar al jugador? escriba CONFIRMAR para proceder") == "CONFIRMAR") {
+			
+			toggleOverlay("show");
+            var jugadorID = $(this).data("jugador");
+//            alert(playerID);
+
+			$.post("assets/php/expulsarJugador.php", {action: 'expulsarJugador', jugador: jugadorID, equipo: '<?=$_GET['idEquipo']?>'}, function(json) {
+
+				if(json.status=='ok') {
+					location.reload();
+					toggleOverlay("hide");
+				}
+				else {
+					alert(json.msg);
+					toggleOverlay("hide");
+				}
+
+
+			});
+			
+		}
+        
+        
+    });
     
     
     
