@@ -181,11 +181,26 @@ require("_middle.php");
 
 <script type="text/javascript">
 
+    
+    $("#abandonarEquipo").click(function(e) {
+    
+		if(prompt("Seguro que desea abandonar el equipo? escriba CONFIRMAR para proceder") == "CONFIRMAR") {
+			
+			toggleOverlay("show");
 
+			$.post("assets/php/abandonarEquipo.php", {action: 'abandonarEquipo'}, function(json) {
 
-    
-    
-    
+				if(json.status=='ok') {
+                    window.location = "perfil.php"
+					toggleOverlay("hide");
+				}
+				else {
+					alert(json.msg);
+					toggleOverlay("hide");
+				}
+			});
+		}
+    });
     
     
 </script>    

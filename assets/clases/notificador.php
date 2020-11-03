@@ -141,6 +141,27 @@ class Notificador {
 				$repeat=true;
 				break;
 				
+                
+            case "salirEquipo":
+				
+				$titulo="Saliste de un equipo";
+				$contenido="Abandonaste el equipo: ".$arrParam[0].".";
+				
+				$link="javascript: void(0)";
+				$repeat=true;
+				break;				
+                
+
+            case "jugadorSalioEquipo":
+				
+				$titulo="Un jugador salio de tu equipo";
+				$contenido="El jugador: ".$arrParam[0]." abandono tu equipo: ".$arrParam[1].".";
+				
+				$link="javascript: void(0)";
+				$repeat=true;
+				break;				
+                
+                
                 /*
 				
 			case "delete_team":	
