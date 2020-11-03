@@ -182,9 +182,7 @@ class Notificador {
 				break;				
 
                 
-                /*
-				
-			case "delete_team":	
+			case "borrarEquipo":	
 				
 				$titulo="El equipo fue eliminado";
 				$contenido="El administrador ".$arrParam[0]." ha eliminado el equipo: ".$arrParam[1];
@@ -193,9 +191,6 @@ class Notificador {
 				$repeat=true;
 				break;
 
-			
-                
-		*/
                 
                 
 			default:

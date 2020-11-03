@@ -316,16 +316,34 @@ require("_middle.php");
 					alert(json.msg);
 					toggleOverlay("hide");
 				}
-
-
 			});
-			
 		}
-        
-        
     });
     
     
+    
+    
+	//eliminar Equipo
+	$("#borrarEquipo").click(function(e) {
+
+		if(prompt("Seguro que desea eliminar el equipo? escriba CONFIRMAR para proceder") == "CONFIRMAR") {
+			
+			toggleOverlay("show");
+
+			$.post("assets/php/eliminarEquipo.php", {action: 'borrarEquipo', equipo: '<?=$_GET['idEquipo']?>'}, function(json) {
+
+				if(json.status=='ok') {
+					window.location = 'perfil_listarEquipos.php';
+					toggleOverlay("hide");
+				}
+				else {
+					alert(json.msg);
+					toggleOverlay("hide");
+				}
+			});
+		}
+	});
+	    
     
     
     

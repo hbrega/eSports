@@ -163,6 +163,25 @@ class Equipo {
         return true;
     }
     
+
+
+    public function EliminarEquipo() {
+        
+		$conn = _connect();
+
+        $sql="	UPDATE equipos
+                SET fechaBaja       = NOW()
+                WHERE id            = '".$conn->real_escape_string($this->id)."'";
+
+        
+		if (!$conn->query($sql)) {
+			echo($conn->errno." ".$conn->error);
+			return false;
+		}
+
+        return true;
+    }    
+    
     
     
     public function ListarJugadores() {
