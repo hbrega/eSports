@@ -23,6 +23,43 @@ if($equipo->manager->id != $usuario->id) {
 
 
 
+    
+
+$jugadores = $equipo->ListarJugadores();
+$jugTaj="";
+
+if($jugadores) {
+    foreach($jugadores as $jugador) {
+
+        $jugTaj.="	
+            <div class='col-sm-6 col-lg-3'>
+                <div class='team-item team-item--v4 team-3' style='transform: scale(0.5, 0.5);'>
+                    <a href='jugador.php?id=".$jugador->id."' class='team-item__thumbnail'>
+                        <div class='team-item__bg-holder'>
+                            <div class='team-item__bg' style='background-image: url(assets/img/samples/team-selection-character-01-bg.jpg);'></div>
+                        </div>
+                        <div style='background-image: url(".$jugador->avatarURL.");' class='team-item__img-primary'></div>
+                    </a>
+                    <p class='team-item__subtitle h6' style='font-size: 2em;'>
+                        <a href='jugador.php?id=".$jugador->id."'>
+                            ".($jugador->nombre==""?"$jugador->email":$jugador->nombre.' '.$jugador->apellido)."
+                        </a>	
+                    </p>
+                    <p class='team-item__subtitle h6' style='font-size: 1.5em;'>
+                        <a href='jugador.php?id=".$jugador->id."'>
+                            ".$jugador->nickname."
+                        </a>
+                    </p>
+                    <div class='h4 btnExpulsar' style='font-size: 2em; padding: 6px; background-color: #F00; color: #fff;' data-player='".$jugador->id."'>EXPULSAR</div>
+                </div>
+            </div>
+        ";
+    }
+}
+
+
+    
+    
 
 
 ?>
@@ -50,7 +87,7 @@ if($equipo->manager->id != $usuario->id) {
 					</div>
 
 
-					<p>
+					<p class="mt-4 mb-4">
 						<?=str_replace(PHP_EOL,"<br>",$equipo->descripcion)?>
 					</p>
 
@@ -58,31 +95,72 @@ if($equipo->manager->id != $usuario->id) {
 					
 					<div class="row mt-sm-auto mb-sm-auto">
 
-						<?=$teammatesCards?>
+						<?=$jugTaj?>
 
-						
 						<div class="col-sm-6 col-lg-3">
-							<div class="team-item team-item--v4 team-3" style="transform: scale(0.5, 0.5);" id="invitePlayer">
+							<div class="team-item team-item--v4 team-3" id="invitarJugador">
 								<a href="javascript: void(0)" class="team-item__thumbnail" >
 									<div class="team-item__bg-holder">
-										<div class="team-item__bg" style="background-image: url(assets/img/samples/team-selection-character-01-bg.jpg);"></div>
+										<div class="team-item__bg" style="background-image: url(assets/img/selection_bg.jpg);"></div>
 									</div>
 									<div style="background-image: url(assets/img/invite.png);" class="team-item__img-primary"></div>
 								</a>
-								<span class="team-item__subtitle h6" style="font-size: 2em;">Invitar Jugador</span>
+								<span class="team-item__subtitle h6">Invitar Jugador</span>
 							</div>
 						</div>
 						
 					</div>
 
 					<div class="text-right">
-						<button class="btn btn-danger" id="deleteTeam">ELiminar Equipo</button>
+						<button class="btn btn-danger" id="borrarEquipo">ELiminar Equipo</button>
+						<button class="btn btn-warning" id="volver">Volver</button>
 					</div>
 					
 				</div>
-                
             </div>
-		</main>
+
+
+
+
+
+			<div class="modal fade" id="modalInvite" role="dialog" aria-labelledby="modalLabelInvite" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="modalLabelInvite">Invita Jugadores</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+
+						<div class="modal-body">
+							
+							<form action="#" class="form" name="ivtForm" id="ivtForm">
+
+								<p>Ingrese el Correo Electronico de la persona a invitar</p>
+                                
+								<div class="form-group">
+									<select name="ivtPlayer" id="ivtPlayer" class="form-control" style="width: 100%">
+										<option value=""></option>
+									</select>
+								</div>
+                                
+								
+								<input type="hidden" name="action" value="invitarJugador">
+							</form>							
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" id="enviarInvitacion">Invitar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+        </main>
+
 
 
 <?php
@@ -91,8 +169,54 @@ require("_middle.php");
 									   
 ?>
 
+<script type="text/javascript">
 
 
+    $("#invitarJugador").click(function() {
+		$("#modalInvite").modal('show');
+	});
+
+
+    $("#ivtPlayer").select2({
+		language: "es",
+		minimumInputLength: 3,
+		ajax: {
+			url: 'assets/php/checkInvite.php',
+			dataType: 'json',
+            data: function (params) {
+                return {
+                    q: params.term,
+                    page: params.page,
+                    equipo: '<?=$_GET['idEquipo']?>'
+                };
+            },
+            delay: 250, 
+			cache: true,
+			placeholder: '',
+			dropdownParent: $("#modalInvite"),
+			tags: true,
+			language: 'es',
+
+			processResults: function (data) {
+				return {
+					results: data
+				};
+			}
+		}
+	});
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</script>    
+    
+    
 <?php
 
 require("_footer.php");
