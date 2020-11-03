@@ -92,11 +92,9 @@ class Notificador {
 				$link="perfil.php";
 				$repeat=false;
 				break;
-				
-                /*
-				
-				
-			case "invitacion_sent":	
+
+                
+			case "invitacionEnviada":	
 				
 				$titulo="Invitacion Enviada";
 				$contenido="Tu invitacion al usuario: ".$arrParam[0]." para unirse al equipo: '".$arrParam[1]."' ha sido enviada satisfactoriamente.";
@@ -106,7 +104,7 @@ class Notificador {
 				break;
 				
 
-			case "invitacion_received":	
+			case "invitacionRecibida":	
 				
 				$titulo="Invitacion Recibida";
 				$contenido="Has sido invitado por: ".$arrParam[0]." para unirte al equipo: '".$arrParam[1]."', para responder a la misma, hace click AQUI";
@@ -115,6 +113,7 @@ class Notificador {
 				$repeat=true;
 				break;
 				
+                /*
 				
 			case "invitation_accepted":	
 				$titulo="Han aceptado tu invitacion";

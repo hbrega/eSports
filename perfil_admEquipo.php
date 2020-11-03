@@ -145,7 +145,7 @@ if($jugadores) {
 									</select>
 								</div>
                                 
-								
+								<input type="hidden" name="idEquipo" value="<?=$_GET['idEquipo']?>">
 								<input type="hidden" name="action" value="invitarJugador">
 							</form>							
 						</div>
@@ -206,6 +206,55 @@ require("_middle.php");
 	});
 
     
+    
+    
+    
+	$("#enviarInvitacion").click(function(e) {
+		
+		e.preventDefault();
+		var sinError=true;
+
+		
+		$("#ivtForm").find("*").each(function() {
+			$(this).removeClass("has-error");
+			$(this).next("span.form-notice").remove();
+		});
+
+
+        if( $("#ivtPlayer").val() == "" ) {
+            $("#ivtPlayer").addClass("has-error");
+            $("#ivtPlayer").after("<span class='form-notice'>Este campo es obligatorio</span>");
+
+            sinError=false;
+		}
+
+        
+		if(sinError) {
+			
+			toggleOverlay("show");
+
+			$.post("assets/php/invitar.php", $("#ivtForm").serialize(), function(json) {
+				$("#ivtPlayer").val(null).trigger('change');
+				$("#ivtMail").val("");
+				
+				if(json.status=='ok') {
+                    location.reload();
+                    
+					//$("#modalInvite").modal('hide');
+					//toggleOverlay("hide");
+					//UpdateNotifications(true);
+				
+				}
+				else {
+					alert(json.msg);
+					toggleOverlay("hide");
+				}
+
+
+			});
+
+		}
+	});
     
     
     
