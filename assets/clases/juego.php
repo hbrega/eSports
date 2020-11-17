@@ -44,7 +44,7 @@ class Juego {
         $this->jugadores    = $row['jugadores'];
 
         $this->logo         = $row['logo'];
-        $this->paginaURL    = $row['$paginaURL'];
+        $this->paginaURL    = $row['paginaURL'];
         $this->red          = $row['red'];
         
     }
