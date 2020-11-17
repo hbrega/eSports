@@ -29,7 +29,7 @@ require("_header.php");
 							</ul>
 						</div>
 					</article>
-
+<!---
                     <article class="widget-carousel__item post slick-slide">
 						<div class="post__thumbnail">
 							<img src="assets/img/samples/widget-posts-carousel-img-02.jpg" alt="">
@@ -48,7 +48,7 @@ require("_header.php");
 							</ul>
 						</div>
 					</article>
-
+--->
 				</div>
 			</div>
             
@@ -77,13 +77,13 @@ require("_header.php");
 						<div class="post__header">
 							<ul class="post__cats list-unstyled">
 								<li class="post__cats-item color-success">
-									<a href="#">PUBG</a>
+									<a href="torneos_info.php?id=4">PUBG</a>
 								</li>
 							</ul>
-							<h2 class="post__title h4"><a href="blog-post.html">Torneo Player Unknown's Battlegrounds</a></h2>
+							<h2 class="post__title h4"><a href="torneos_info.php?id=4">Torneo Player Unknown's Battlegrounds</a></h2>
 							<ul class="post__meta list-unstyled">
 								<li class="post__meta-item post__meta-item--date">
-									<a href="#">28 de Octubre del 2020</a>
+									<a href="torneos_info.php?id=4">28 de Octubre del 2020</a>
 								</li>
 							</ul>
 						</div>
@@ -103,13 +103,13 @@ require("_header.php");
 						<div class="post__header">
 							<ul class="post__cats list-unstyled">
 								<li class="post__cats-item color-success">
-									<a href="#">FORTNITE</a>
+									<a href="torneos_info.php?id=3">FORTNITE</a>
 								</li>
 							</ul>
-							<h2 class="post__title h4"><a href="blog-post.html">Torneo Fortnite</a></h2>
+							<h2 class="post__title h4"><a href="torneos_info.php?id=3">Torneo Fortnite</a></h2>
 							<ul class="post__meta list-unstyled">
 								<li class="post__meta-item post__meta-item--date">
-									<a href="#">25 de Octubre del 2020</a>
+									<a href="torneos_info.php?id=3">25 de Octubre del 2020</a>
 								</li>
 							</ul>
 						</div>
@@ -128,13 +128,13 @@ require("_header.php");
 						<div class="post__header">
 							<ul class="post__cats list-unstyled">
 								<li class="post__cats-item color-success">
-									<a href="#">CSGO</a>
+									<a href="torneos_info.php?id=2">CSGO</a>
 								</li>
 							</ul>
-							<h2 class="post__title h4"><a href="blog-post.html">Torneo Counter Strike Global Offensive</a></h2>
+							<h2 class="post__title h4"><a href="torneos_info.php?id=2">Torneo Counter Strike Global Offensive</a></h2>
 							<ul class="post__meta list-unstyled">
 								<li class="post__meta-item post__meta-item--date">
-									<a href="#">22 de Octubre del 2020</a>
+									<a href="torneos_info.php?id=2">22 de Octubre del 2020</a>
 								</li>
 							</ul>
 						</div>
@@ -154,13 +154,13 @@ require("_header.php");
 						<div class="post__header">
 							<ul class="post__cats list-unstyled">
 								<li class="post__cats-item color-warning">
-									<a href="#">LOL</a>
+									<a href="torneos_info.php?id=1">LOL</a>
 								</li>
 							</ul>
-							<h2 class="post__title h4"><a href="blog-post.html">Torneo League Of Legends</a></h2>
+							<h2 class="post__title h4"><a href="torneos_info.php?id=1">Torneo League Of Legends</a></h2>
 							<ul class="post__meta list-unstyled">
 								<li class="post__meta-item post__meta-item--date">
-									<a href="#">20 de Octubre del 2020</a>
+									<a href="torneos_info.php?id=1">20 de Octubre del 2020</a>
 								</li>
 							</ul>
 						</div>

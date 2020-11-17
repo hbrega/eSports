@@ -18,6 +18,8 @@ require("assets/clases/persona.php");
 require("assets/clases/jugador.php");
 require("assets/clases/manager.php");
 require("assets/clases/equipo.php");
+require("assets/clases/torneo.php");
+require("assets/clases/juego.php");
 require("assets/clases/invitacion.php");
 require("assets/clases/pagina.php");
 require("assets/clases/menu.php");
