@@ -36,16 +36,19 @@ foreach($equipos as $equipo) {
     
     
     if($inscripciones) {
-        $inscripcionesTable.="
+        foreach($inscripciones as $inscripcion) {
+            $inscripcionesTable.="
                 <tr>
-                    <td class='align-middle'></td>
-                    <td class='align-middle'></td>
+                    <td class='align-middle'>".$inscripcion->fechaAlta."</td>
+                    <td class='align-middle'>".$inscripcion->torneo->nombre."</td>
                     <td class='align-middle text-right'>
-                        <button type='button' class='btn btn-primary'>Ver Equipo</button>
+                        <button type='button' class='btn btn-primary'>Ver Jugadores</button>
                         <button type='button' class='btn btn-danger'>Abandonar</button>
                     </td>
                 </tr>
-        ";
+            ";
+        }
+
     }
     else {
         $inscripcionesTable.="
