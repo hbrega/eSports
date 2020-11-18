@@ -32,8 +32,8 @@ if($jugadores) {
     foreach($jugadores as $jugador) {
 
         $jugTaj.="	
-            <div class='col-sm-6 col-lg-3'>
-                <div class='team-item team-item--v4 team-3' style='transform: scale(0.5, 0.5);'>
+            <div class='col-sm-6 col-lg-4'>
+                <div class='team-item team-item--v4 team-3'>
                     <a href='jugador.php?id=".$jugador->id."' class='team-item__thumbnail'>
                         <div class='team-item__bg-holder'>
                             <div class='team-item__bg' style='background-image: url(assets/img/samples/team-selection-character-01-bg.jpg);'></div>
@@ -132,7 +132,7 @@ if($invitaciones = $equipo->ListarInvitaciones()) {
 						<?=$jugTaj?>
 
 						<div class="col-sm-6 col-lg-3">
-							<div class="team-item team-item--v4 team-3" id="invitarJugador" style='transform: scale(0.5, 0.5);'>
+							<div class="team-item team-item--v4 team-3" id="invitarJugador">
 								<a href="javascript: void(0)" class="team-item__thumbnail" >
 									<div class="team-item__bg-holder">
 										<div class="team-item__bg" style="background-image: url(assets/img/selection_bg.jpg);"></div>

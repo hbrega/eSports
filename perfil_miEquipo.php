@@ -17,15 +17,15 @@ if(!$equipo = $usuario->ListarEquipos()) {
 
 //manager
 $manTaj="	
-    <div class='col-sm-6 col-lg-3'>
-        <div class='team-item team-item--v4 team-3' style='transform: scale(0.5, 0.5);'>
+    <div class='col-sm-6 col-lg-4 mt-5 mb-3'>
+        <div class='team-item team-item--v4 team-3'>
             <a href='manager.php?id=".$equipo->manager->id."' class='team-item__thumbnail'>
                 <div class='team-item__bg-holder'>
                     <div class='team-item__bg' style='background-image: url(assets/img/samples/team-selection-character-01-bg.jpg);'></div>
                 </div>
                 <div style='background-image: url(".$equipo->manager->avatarURL.");' class='team-item__img-primary'></div>
             </a>
-            <p class='team-item__subtitle h6' style='font-size: 2em;'>
+            <p class='team-item__subtitle h6'>
                 <a href='manager.php?id=".$equipo->manager->id."'>
                     ".($equipo->manager->nombre==""?"$equipo->manager->email":$equipo->manager->nombre.' '.$equipo->manager->apellido)."
                 </a>	
@@ -44,20 +44,20 @@ if($jugadores) {
     foreach($jugadores as $jugador) {
 
         $jugTaj.="	
-            <div class='col-sm-6 col-lg-3'>
-                <div class='team-item team-item--v4 team-3' style='transform: scale(0.5, 0.5);'>
+            <div class='col-sm-6 col-lg-4 mt-5'>
+                <div class='team-item team-item--v4 team-3'>
                     <a href='jugador.php?id=".$jugador->id."' class='team-item__thumbnail'>
                         <div class='team-item__bg-holder'>
                             <div class='team-item__bg' style='background-image: url(assets/img/samples/team-selection-character-01-bg.jpg);'></div>
                         </div>
                         <div style='background-image: url(".$jugador->avatarURL.");' class='team-item__img-primary'></div>
                     </a>
-                    <p class='team-item__subtitle h6' style='font-size: 2em;'>
+                    <p class='team-item__subtitle h6'>
                         <a href='jugador.php?id=".$jugador->id."'>
                             ".($jugador->nombre==""?"$jugador->email":$jugador->nombre.' '.$jugador->apellido)."
                         </a>	
                     </p>
-                    <p class='team-item__subtitle h6' style='font-size: 1.5em;'>
+                    <p class='team-item__subtitle h6'>
                         <a href='jugador.php?id=".$jugador->id."'>
                             ".$jugador->nickname."
                         </a>

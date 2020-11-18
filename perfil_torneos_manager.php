@@ -7,6 +7,12 @@ if($_SESSION['userLvl'] != 2) {
 	die();
 }
 
+
+
+
+
+
+
 ?>
 		<main class="site-content account-page" id="wrapper">
 
