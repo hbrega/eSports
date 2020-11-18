@@ -90,8 +90,10 @@ class Invitacion {
 
         //rechazar el resto de las invitaciones:
         $invitaciones = $this->jugador->ListarInvitaciones();
-        foreach($invitaciones as $invitacion) {
-            $invitacion->RechazarInvitacion();    
+        if($invitaciones) {
+            foreach($invitaciones as $invitacion) {
+                $invitacion->RechazarInvitacion();    
+            }
         }
         
         
