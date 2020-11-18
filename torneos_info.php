@@ -2,7 +2,6 @@
 
 require("_header.php");
 
-
 $torneo = new Torneo($_GET['id']);
 
 if($torneo->nombre == "") {

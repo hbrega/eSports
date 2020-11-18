@@ -234,8 +234,25 @@ class Equipo {
     
     public function ListarTorneos() {
         
+		$conn = _connect();
         
-        return false;
+		$sql="	SELECT id
+				FROM torneos_equipos
+				WHERE idEquipo = '".$conn->real_escape_string($this->id)."'
+					AND fechaBaja IS NULL";
+        
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+
+		if($result->num_rows==0) {
+			return false;
+		}
+
+		while($row=$result->fetch_assoc()) {
+			$inscripciones[] = new Inscripcion($row['id']);
+		}
+
+		return $inscripciones;
+        
     }
     
     

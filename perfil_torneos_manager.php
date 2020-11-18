@@ -2,7 +2,7 @@
 
 require("_header.php");
 
-if($_SESSION['userLvl'] != 1) {
+if($_SESSION['userLvl'] != 2) {
 	echo("<script>window.location='perfil_nuevoEquipo.php'</script>");
 	die();
 }

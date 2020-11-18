@@ -56,7 +56,7 @@
 					</li>
 					
 					<li>
-						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_torneos.php"?"active":"")?>" href="perfil_torneos.php">Mis Torneos</a>
+						<a class="<?=(basename($_SERVER["PHP_SELF"])=="perfil_torneos_manager.php"?"active":"")?>" href="perfil_torneos_manager.php">Mis Torneos</a>
 					</li>
 
                     <li>
