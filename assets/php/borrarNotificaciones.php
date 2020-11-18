@@ -35,5 +35,12 @@ switch($_SESSION['userLvl']) {
 
 Notificador::MarcarLeido($_POST['id'], $usuario);
 
+
+$json = new stdClass();
+$json->status="ok";
+
+
+echo json_encode($json);
+
 die();
 ?>
