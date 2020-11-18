@@ -42,8 +42,8 @@ foreach($equipos as $equipo) {
                     <td class='align-middle'>".$inscripcion->fechaAlta."</td>
                     <td class='align-middle'>".$inscripcion->torneo->nombre."</td>
                     <td class='align-middle text-right'>
-                        <button type='button' class='btn btn-primary'>Ver Jugadores</button>
-                        <button type='button' class='btn btn-danger'>Abandonar</button>
+                        <a href='inscripcion.php?id=".$inscripcion->id."'><button type='button' class='btn btn-primary'>Ver Jugadores</button></a>
+                        <button type='button' class='btn btn-danger' data-equipo='".$inscripcion->equipo->id."' data-inscripcion='".$inscripcion->id."'>Abandonar</button>
                     </td>
                 </tr>
             ";
@@ -91,6 +91,29 @@ require("_middle.php");
 ?>
 
 
+<script type="text/javascript">
+    
+	$(".torneosTable button.btn-danger").click(function(e) {
+        
+		if(prompt("Seguro que desea abandonar el torneo? escriba CONFIRMAR para proceder") == "CONFIRMAR") {
+			
+			toggleOverlay("show");
+        
+            $.post("assets/php/abandonarTorneo.php", {inscripcion: $(this).data("inscripcion"), equipo: $(this).data("equipo"), action: 'abandonarTorneo'}, function(json) {
+                if(json.status=='ok') {
+                    location.reload();
+                    toggleOverlay("hide");
+                }
+                else {
+                    alert(json.msg);
+                    toggleOverlay("hide");
+                }
+            });
+        }
+        
+	});
+
+</script>
 
 <?php
 
