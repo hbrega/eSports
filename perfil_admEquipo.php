@@ -32,7 +32,7 @@ if($jugadores) {
     foreach($jugadores as $jugador) {
 
         $jugTaj.="	
-            <div class='col-sm-6 col-lg-4'>
+            <div class='col-sm-6 col-lg-4 mt-5'>
                 <div class='team-item team-item--v4 team-3'>
                     <a href='jugador.php?id=".$jugador->id."' class='team-item__thumbnail'>
                         <div class='team-item__bg-holder'>
@@ -40,17 +40,17 @@ if($jugadores) {
                         </div>
                         <div style='background-image: url(".$jugador->avatarURL.");' class='team-item__img-primary'></div>
                     </a>
-                    <p class='team-item__subtitle h6' style='font-size: 2em;'>
+                    <div class='h4 btnExpulsar' style='padding: 6px; background-color: #F00; color: #fff; cursor: pointer;' data-jugador='".$jugador->id."'>EXPULSAR</div>
+                    <p class='team-item__subtitle h6'>
                         <a href='jugador.php?id=".$jugador->id."'>
                             ".($jugador->nombre==""?"$jugador->email":$jugador->nombre.' '.$jugador->apellido)."
                         </a>	
                     </p>
-                    <p class='team-item__subtitle h6' style='font-size: 1.5em;'>
+                    <p class='team-item__subtitle h6'>
                         <a href='jugador.php?id=".$jugador->id."'>
                             ".$jugador->nickname."
                         </a>
                     </p>
-                    <div class='h4 btnExpulsar' style='font-size: 2em; padding: 6px; background-color: #F00; color: #fff;' data-jugador='".$jugador->id."'>EXPULSAR</div>
                 </div>
             </div>
         ";
@@ -131,7 +131,7 @@ if($invitaciones = $equipo->ListarInvitaciones()) {
 
 						<?=$jugTaj?>
 
-						<div class="col-sm-6 col-lg-3">
+						<div class="col-sm-6 col-lg-4 mt-5">
 							<div class="team-item team-item--v4 team-3" id="invitarJugador">
 								<a href="javascript: void(0)" class="team-item__thumbnail" >
 									<div class="team-item__bg-holder">
@@ -139,7 +139,7 @@ if($invitaciones = $equipo->ListarInvitaciones()) {
 									</div>
 									<div style="background-image: url(assets/img/invite.png);" class="team-item__img-primary"></div>
 								</a>
-								<span class="team-item__subtitle h6" style='font-size: 1.5em;'>Invitar Jugador</span>
+								<span class="team-item__subtitle h6">Invitar Jugador</span>
 							</div>
 						</div>
 						
