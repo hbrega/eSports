@@ -21,7 +21,7 @@ $manTaj="
         <div class='team-item team-item--v4 team-3'>
             <a href='manager.php?id=".$equipo->manager->id."' class='team-item__thumbnail'>
                 <div class='team-item__bg-holder'>
-                    <div class='team-item__bg' style='background-image: url(assets/img/samples/team-selection-character-01-bg.jpg);'></div>
+                    <div class='team-item__bg' style='background-image: url(assets/img/selection_bg_grey.jpg);'></div>
                 </div>
                 <div style='background-image: url(".$equipo->manager->avatarURL.");' class='team-item__img-primary'></div>
             </a>
@@ -48,7 +48,7 @@ if($jugadores) {
                 <div class='team-item team-item--v4 team-3'>
                     <a href='jugador.php?id=".$jugador->id."' class='team-item__thumbnail'>
                         <div class='team-item__bg-holder'>
-                            <div class='team-item__bg' style='background-image: url(assets/img/samples/team-selection-character-01-bg.jpg);'></div>
+                            <div class='team-item__bg' style='background-image: url(assets/img/selection_bg_grey.jpg);'></div>
                         </div>
                         <div style='background-image: url(".$jugador->avatarURL.");' class='team-item__img-primary'></div>
                     </a>
