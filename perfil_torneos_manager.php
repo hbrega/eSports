@@ -101,7 +101,7 @@ require("_middle.php");
         
             $.post("assets/php/abandonarTorneo.php", {torneo: $(this).data("torneo"), equipo: $(this).data("equipo"), action: 'abandonarTorneo'}, function(json) {
                 if(json.status=='ok') {
-//                    location.reload();
+                    location.reload();
                     toggleOverlay("hide");
                 }
                 else {

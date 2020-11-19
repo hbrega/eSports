@@ -69,7 +69,7 @@ else {
     $jugadores = $torneo->ListarJugadores($equipo);
 
     //abandonar
-    //$torneo->AbandonarTorneo($equipo);
+    $torneo->AbandonarTorneo($equipo);
     
     
     //notificar mnanager
