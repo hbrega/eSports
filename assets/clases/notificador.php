@@ -193,6 +193,18 @@ class Notificador {
 
                 
                 
+			case "abandonarTorneo":	
+				
+				$titulo="El equipo ha abandonado el torneo";
+				$contenido="El administrador ha retirado el equipo: ".$arrParam[0]." del torneo: ".$arrParam[1];
+				
+				$link="javascript: void(0)";
+				$repeat=true;
+				break;
+                
+                
+                
+                
 			default:
 				return false;
 				break;

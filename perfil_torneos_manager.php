@@ -43,7 +43,7 @@ foreach($equipos as $equipo) {
                     <td class='align-middle'>".$inscripcion->torneo->nombre."</td>
                     <td class='align-middle text-right'>
                         <a href='inscripcion.php?id=".$inscripcion->id."'><button type='button' class='btn btn-primary'>Ver Jugadores</button></a>
-                        <button type='button' class='btn btn-danger' data-equipo='".$inscripcion->equipo->id."' data-inscripcion='".$inscripcion->id."'>Abandonar</button>
+                        <button type='button' class='btn btn-danger' data-equipo='".$inscripcion->equipo->id."' data-torneo='".$inscripcion->torneo->id."'>Abandonar</button>
                     </td>
                 </tr>
             ";
@@ -99,9 +99,9 @@ require("_middle.php");
 			
 			toggleOverlay("show");
         
-            $.post("assets/php/abandonarTorneo.php", {inscripcion: $(this).data("inscripcion"), equipo: $(this).data("equipo"), action: 'abandonarTorneo'}, function(json) {
+            $.post("assets/php/abandonarTorneo.php", {torneo: $(this).data("torneo"), equipo: $(this).data("equipo"), action: 'abandonarTorneo'}, function(json) {
                 if(json.status=='ok') {
-                    location.reload();
+//                    location.reload();
                     toggleOverlay("hide");
                 }
                 else {

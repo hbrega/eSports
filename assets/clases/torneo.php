@@ -58,6 +58,107 @@ class Torneo {
     }
     
     
+    
+    function AbandonarTorneo($equipo) {
+        
+		$conn = _connect();
+        
+		$sql= "	UPDATE torneos_equipos
+				SET 
+					fechaBaja      = NOW()
+				WHERE idTorneo     = ".$this->id."
+                    AND idEquipo   = ".$equipo->id."
+                    AND fechaBaja  IS NULL";
+
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+        
+        
+		$sql= "	UPDATE torneos_equipos_jugadores
+				SET 
+					fechaBaja      = NOW()
+				WHERE idTorneo     = ".$this->id."
+                    AND idEquipo   = ".$equipo->id."
+                    AND fechaBaja  IS NULL";
+
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+
+        
+        return true;
+    }
+    
+    
+    
+    function ListarJugadores($equipo) {
+        
+		$conn = _connect();
+        
+		$sql="	SELECT idJugador
+				FROM torneos_equipos_jugadores
+				WHERE idTorneo = '".$conn->real_escape_string($this->id)."'
+                    AND idEquipo  = '".$conn->real_escape_string($equipo->id)."'
+					AND fechaBaja IS NULL";
+        
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+
+		if($result->num_rows==0) {
+			return false;
+		}
+        
+		while($row=$result->fetch_assoc()) {
+			$jugadores[] = new Jugador($row['idJugador']);
+		}
+
+		return $jugadores;
+        
+    }
+    
+    
+    
+    function CheckEquipo($equipo) {
+        
+		$conn = _connect();
+        
+		$sql="	SELECT id
+				FROM torneos_equipos
+				WHERE idTorneo = '".$conn->real_escape_string($this->id)."'
+                    AND idEquipo  = '".$conn->real_escape_string($equipo->id)."'
+					AND fechaBaja IS NULL";
+        
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+
+		if($result->num_rows==0) {
+			return true;
+		}
+        
+        return false;
+        
+    }
+
+    
+    function CheckJugador($jugador) {
+        
+		$conn = _connect();
+
+		$sql="	SELECT id
+				FROM torneos_equipos_jugadores
+				WHERE idTorneo = '".$conn->real_escape_string($this->id)."'
+                    AND idJugador  = '".$conn->real_escape_string($jugador->id)."'
+					AND fechaBaja IS NULL";
+        
+		$result=$conn->query($sql) or trigger_error("Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
+
+		if($result->num_rows==0) {
+			return true;
+		}
+        
+        return false;        
+        
+    }
+    
+
+    
+    
+    
 }
 
 
