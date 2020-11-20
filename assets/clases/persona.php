@@ -20,9 +20,9 @@ abstract class Persona {
     
     
     
-    abstract static function Login($email, $pass);
-    abstract static function Nuevo($email, $pass, $fechaNacimiento);
-    abstract static function BuscarPorEmail($email);
+//    abstract static function Login($email, $pass);
+//    abstract static function Nuevo($email, $pass, $fechaNacimiento);
+//    abstract static function BuscarPorEmail($email);
     abstract function ActualizarDatos();
     abstract function ListarEquipos();
 
